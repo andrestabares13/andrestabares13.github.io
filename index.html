@@ -1,134 +1,143 @@
-<!<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Álbum Fotográfico</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Álbum Fotográfico</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('tu_imagen_de_fondo.jpg'); /* Reemplaza 'tu_imagen_de_fondo.jpg' con la ruta de tu imagen */
+            background-repeat: repeat; /* Opciones: no-repeat, repeat-x, repeat-y */
+            background-size: cover; /* Opciones: cover, contain */
+            opacity: 0.9; /* Ajusta la opacidad según tus preferencias */
+        }
 
-    header {
-      background-color: #8B4513; /* Tono madera */
-      color: white;
-      padding: 10px;
-      text-align: center;
-      font-size: 28px;
-    }
+        header {
+            color: rgb(239, 118, 6);
+            padding: 10px;
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 20px; /* Ajuste para separar el encabezado del contenido */
+        }
 
-    h1, h2 {
-      text-align: center;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      font-style: italic; /* Estilo cursiva para todos los títulos */
-    }
+        nav {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
 
-    .album-container {
-      text-align: center;
-      margin-bottom: 40px;
-    }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
 
-    .album-title {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      font-style: italic; /* Estilo cursiva para los títulos de álbumes */
-      background-color: #8B4513; /* Tono madera */
-      color: white; /* Color del texto */
-      padding: 5px; /* Espaciado interno para resaltar el texto */
-    }
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
 
-    .album-photo {
-      max-width: 100%;
-      height: auto;
-      border: 1px solid #ccc;
-      margin-bottom: 10px;
-    }
-  </style>
+        nav a {
+            text-decoration: none;
+            color: #333; /* Color del texto de los enlaces */
+            transition: color 0.3s;
+            font-size: 16px; /* Tamaño del texto ajustado */
+            padding: 8px 12px; /* Espaciado interno del botón */
+            border: 1px solid #333; /* Borde del botón */
+            border-radius: 5px; /* Bordes redondeados */
+        }
+
+        nav a:hover {
+            color: #8B4513; /* Color más oscuro al pasar el mouse sobre los enlaces */
+            background-color: #333; /* Cambia el fondo al pasar el mouse sobre los enlaces */
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: italic; /* Estilo cursiva para todos los títulos */
+        }
+
+        .album-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .album-title {
+            font-size: 28px; /* Tamaño aumentado para un título más formal */
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: italic; /* Estilo cursiva para los títulos de álbumes */
+            color: #333; /* Color del texto del título del álbum */
+        }
+
+        .album-photo {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .payment-bar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: black;
+            padding: 10px 0;
+            text-align: center;
+            color: white; /* Color del texto en la barra de métodos de pago */
+        }
+
+        .payment-method {
+            display: inline-block;
+            margin: 0 20px;
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1>AMOBLATECH</h1>
-  </header>
+    <header>
+        <h1>AMOBLATECH</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Quienes somos</a></li>
+                <li><a href="#">Perfil</a></li>
+                <li><a href="#">Carro de Compras</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <div class="album-container" id="album1">
-    <h2 class="album-title">Nuestras Cocinas</h2>
-    <div class="album" id="album1Content">
-      <!-- Fotos del álbum 1 -->
+    <div class="album-container" id="album1">
+        <h2 class="album-title">Nuestras Cocinas</h2>
+        <div class="album" id="album1Content">
+            <!-- Fotos del álbum 1 -->
+        </div>
     </div>
-  </div>
 
-  <div class="album-container" id="album2">
-    <h2 class="album-title">Nuestros Centros de TV</h2>
-    <div class="album" id="album2Content">
-      <!-- Fotos del álbum 2 -->
+    <!-- Resto del contenido ... -->
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
     </div>
-  </div>
 
-  <div class="album-container" id="album3">
-    <h2 class="album-title">Nuestros Muebles de Baño</h2>
-    <div class="album" id="album3Content">
-      <!-- Fotos del álbum 3 -->
+    <div class="payment-bar">
+        <div class="payment-method">Efectivo</div>
+        <div class="payment-method">Tarjetas de Crédito</div>
+        <div class="payment-method">PayPal</div>
+        <!-- Agrega más métodos de pago según sea necesario -->
     </div>
-  </div>
 
-  <div class="album-container" id="album4">
-    <h2 class="album-title">Nuestros Closets</h2>
-    <div class="album" id="album4Content">
-      <!-- Fotos del álbum 4 -->
-    </div>
-  </div>
-
-  <div id="myModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <div id="modalContent"></div>
-    </div>
-  </div>
-
-  <script>
-    function handleFileSelect(albumId) {
-      const files = event.target.files;
-      const albumContent = document.getElementById(albumId + 'Content');
-
-      for (let i = 0; i < files.length; i++) {
-        const file = files[i];
-        const reader = new FileReader();
-
-        reader.onload = function (e) {
-          const src = e.target.result;
-          const newPhoto = document.createElement('div');
-          newPhoto.className = 'foto';
-          newPhoto.onclick = function () { openModal(src); };
-
-          const img = document.createElement('img');
-          img.src = src;
-          img.alt = file.name;
-          img.classList.add('album-photo');
-
-          newPhoto.appendChild(img);
-          albumContent.appendChild(newPhoto);
-        };
-
-        reader.readAsDataURL(file);
-      }
-    }
-
-    function openModal(src) {
-      const modalContent = document.getElementById('modalContent');
-      modalContent.innerHTML = `<img src="${src}" alt="Modal Image">`;
-      document.getElementById('myModal').style.display = 'block';
-    }
-
-    function closeModal() {
-      document.getElementById('myModal').style.display = 'none';
-    }
-  </script>
+    <script>
+        // Funciones JavaScript ...
+    </script>
 
 </body>
 </html>
+
