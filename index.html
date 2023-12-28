@@ -1,0 +1,134 @@
+<!<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Álbum Fotográfico</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #8B4513; /* Tono madera */
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-size: 28px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-style: italic; /* Estilo cursiva para todos los títulos */
+    }
+
+    .album-container {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .album-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-style: italic; /* Estilo cursiva para los títulos de álbumes */
+      background-color: #8B4513; /* Tono madera */
+      color: white; /* Color del texto */
+      padding: 5px; /* Espaciado interno para resaltar el texto */
+    }
+
+    .album-photo {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>AMOBLATECH</h1>
+  </header>
+
+  <div class="album-container" id="album1">
+    <h2 class="album-title">Nuestras Cocinas</h2>
+    <div class="album" id="album1Content">
+      <!-- Fotos del álbum 1 -->
+    </div>
+  </div>
+
+  <div class="album-container" id="album2">
+    <h2 class="album-title">Nuestros Centros de TV</h2>
+    <div class="album" id="album2Content">
+      <!-- Fotos del álbum 2 -->
+    </div>
+  </div>
+
+  <div class="album-container" id="album3">
+    <h2 class="album-title">Nuestros Muebles de Baño</h2>
+    <div class="album" id="album3Content">
+      <!-- Fotos del álbum 3 -->
+    </div>
+  </div>
+
+  <div class="album-container" id="album4">
+    <h2 class="album-title">Nuestros Closets</h2>
+    <div class="album" id="album4Content">
+      <!-- Fotos del álbum 4 -->
+    </div>
+  </div>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+    function handleFileSelect(albumId) {
+      const files = event.target.files;
+      const albumContent = document.getElementById(albumId + 'Content');
+
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          const src = e.target.result;
+          const newPhoto = document.createElement('div');
+          newPhoto.className = 'foto';
+          newPhoto.onclick = function () { openModal(src); };
+
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = file.name;
+          img.classList.add('album-photo');
+
+          newPhoto.appendChild(img);
+          albumContent.appendChild(newPhoto);
+        };
+
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function openModal(src) {
+      const modalContent = document.getElementById('modalContent');
+      modalContent.innerHTML = `<img src="${src}" alt="Modal Image">`;
+      document.getElementById('myModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('myModal').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
